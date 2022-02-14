@@ -38,6 +38,8 @@
           <div class="col">
             <div class="form-box py-5">
               <form
+                action="javascript:void(0)"
+                onsubmit="handleOnSubmit(this)"
                 class="row row-cols-md-auto g-3 d-flex justify-content-center"
               >
                 <div class="col-12">
@@ -49,9 +51,11 @@
                   <div class="input-group">
                     <input
                       type="text"
+                      name="task"
                       class="form-control"
                       id="inlineFormInputGroupUsername"
                       placeholder="Your task"
+                      required
                     />
                   </div>
                 </div>
@@ -63,10 +67,12 @@
                   >
                   <div class="input-group">
                     <input
-                      type="text"
+                      type="number"
+                      name="hr"
                       class="form-control"
                       id="inlineFormInputGroupUsername"
                       placeholder="hours"
+                      required
                     />
                   </div>
                 </div>
@@ -86,62 +92,7 @@
             <hr />
             <div class="list-items">
               <table class="table table-striped">
-                <tbody>
-                  <tr>
-                    <td>
-                      <input type="checkbox" name="" id="" />
-                      Watching TV
-                    </td>
-                    <td>5 Hrs</td>
-                    <td class="text-end">
-                      <div class="btn btn-danger btn-sm">
-                        <i class="fa-solid fa-trash-can" title="Delete"></i>
-                      </div>
-                      <div class="btn btn-warning btn-sm">
-                        <i
-                          class="fa-solid fa-arrow-right-from-bracket"
-                          title="Mark as bad list"
-                        ></i>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input type="checkbox" name="" id="" />
-                      Watching TV
-                    </td>
-                    <td>5 Hrs</td>
-                    <td class="text-end">
-                      <div class="btn btn-danger btn-sm">
-                        <i class="fa-solid fa-trash-can" title="Delete"></i>
-                      </div>
-                      <div class="btn btn-warning btn-sm">
-                        <i
-                          class="fa-solid fa-arrow-right-from-bracket"
-                          title="Mark as bad list"
-                        ></i>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input type="checkbox" name="" id="" />
-                      Watching TV
-                    </td>
-                    <td>5 Hrs</td>
-                    <td class="text-end">
-                      <div class="btn btn-danger btn-sm">
-                        <i class="fa-solid fa-trash-can" title="Delete"></i>
-                      </div>
-                      <div class="btn btn-warning btn-sm">
-                        <i
-                          class="fa-solid fa-arrow-right-from-bracket"
-                          title="Mark as bad list"
-                        ></i>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+                <tbody id="task-list"></tbody>
               </table>
             </div>
           </div>
@@ -210,13 +161,13 @@
             </div>
 
             <div class="ttl-bad text-end text-primary">
-              Total Time saved = 50hrs
+              Total Time saved = 50 hrs
             </div>
           </div>
         </div>
         <div class="row mt-2 pb-5 fs-3 fw-bolder text-secondary">
           <div class="col text-center">
-            Total time allocated this week = 50 hrs
+            Total time allocated this week = <span id="totalHours">0</span> hrs
           </div>
         </div>
       </div>
